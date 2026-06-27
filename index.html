@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@tomamhm</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#000;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    padding:30px 16px;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-35%;
+    background:
+        radial-gradient(circle at 50% 4%, rgba(0,245,255,.22), transparent 25%),
+        radial-gradient(circle at 10% 42%, rgba(0,170,255,.10), transparent 24%),
+        radial-gradient(circle at 90% 72%, rgba(255,0,150,.10), transparent 25%);
+    filter:blur(20px);
+    z-index:-2;
+}
+
+.box{
+    width:100%;
+    max-width:500px;
+    text-align:center;
+    animation:fadeUp .7s ease both;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(16px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.avatar{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    margin:0 auto 22px;
+    padding:7px;
+    background:#000;
+    border:3px solid #00f5ff;
+    box-shadow:
+        0 0 18px #00f5ff,
+        0 0 55px rgba(0,245,255,.85),
+        0 0 95px rgba(0,245,255,.35);
+    animation:pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%,100%{box-shadow:0 0 18px #00f5ff,0 0 55px rgba(0,245,255,.85),0 0 95px rgba(0,245,255,.35)}
+    50%{box-shadow:0 0 24px #00f5ff,0 0 70px rgba(0,245,255,1),0 0 115px rgba(0,245,255,.44)}
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    border:5px solid #000;
+}
+
+.name{
+    font-size:52px;
+    line-height:1;
+    font-weight:900;
+    letter-spacing:-2px;
+    margin-bottom:28px;
+    text-shadow:0 0 10px rgba(255,255,255,.35),0 0 22px rgba(0,245,255,.28);
+}
+
+.card{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    width:100%;
+    min-height:82px;
+    padding:15px 17px;
+    margin:13px 0;
+    color:#fff;
+    text-decoration:none;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.20);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 12px 30px rgba(0,0,0,.48), inset 0 0 0 1px rgba(255,255,255,.12);
+    transition:.25s ease;
+}
+
+.card:hover{
+    transform:translateY(-3px) scale(1.01);
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-align:left;
+    min-width:0;
+}
+
+.icon{
+    width:42px;
+    height:42px;
+    min-width:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.92);
+    box-shadow:0 0 14px rgba(255,255,255,.20);
+}
+
+.icon svg{
+    width:21px;
+    height:21px;
+    display:block;
+}
+
+.text{
+    text-align:left;
+    min-width:0;
+}
+
+.title{
+    font-size:24px;
+    line-height:1.05;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+.sub{
+    margin-top:5px;
+    font-size:14px;
+    color:rgba(255,255,255,.82);
+    white-space:nowrap;
+}
+
+.arrow{
+    font-size:28px;
+    opacity:.88;
+    font-weight:300;
+    min-width:22px;
+}
+
+.kaspi{
+    cursor:pointer;
+    background:linear-gradient(135deg,rgba(160,0,8,.88),rgba(255,30,43,.92),rgba(150,0,9,.88));
+    box-shadow:0 0 20px rgba(255,0,25,.48),0 12px 30px rgba(0,0,0,.48);
+}
+
+.kaspi .title{
+    font-size:22px;
+    text-decoration:underline;
+}
+
+.kaspi::after{
+    content:"";
+    position:absolute;
+    top:-70%;
+    left:-95%;
+    width:48%;
+    height:250%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.58), transparent);
+    transform:rotate(25deg);
+    filter:blur(4px);
+    animation:shine 2.6s linear infinite;
+}
+
+@keyframes shine{
+    0%{left:-95%}
+    100%{left:150%}
+}
+
+.telegram{
+    background:linear-gradient(135deg,rgba(0,136,204,.82),rgba(85,200,255,.86));
+    box-shadow:0 0 20px rgba(0,160,255,.48),0 12px 30px rgba(0,0,0,.48);
+}
+
+.tiktok{
+    background:linear-gradient(135deg,rgba(0,0,0,.88),rgba(24,24,24,.84),rgba(0,0,0,.88));
+    box-shadow:0 0 16px rgba(255,255,255,.14),0 12px 30px rgba(0,0,0,.48);
+}
+
+.instagram{
+    background:linear-gradient(135deg,rgba(131,58,180,.84),rgba(225,48,108,.86),rgba(253,29,29,.82),rgba(252,176,69,.82));
+    box-shadow:0 0 20px rgba(255,0,140,.45),0 12px 30px rgba(0,0,0,.48);
+}
+
+.ok{
+    display:none;
+    position:absolute;
+    left:50%;
+    bottom:6px;
+    transform:translateX(-50%);
+    font-size:13px;
+    font-weight:700;
+    color:#fff;
+}
+
+.footer{
+    margin-top:26px;
+    color:rgba(255,255,255,.52);
+    font-size:15px;
+}
+
+.heart{
+    color:#00d9ff;
+    text-shadow:0 0 15px #00d9ff;
+}
+
+@media(max-width:430px){
+    .avatar{width:180px;height:180px}
+    .name{font-size:46px}
+    .card{min-height:78px;padding:14px 14px}
+    .icon{width:38px;height:38px;min-width:38px}
+    .icon svg{width:19px;height:19px}
+    .left{gap:11px}
+    .title{font-size:22px}
+    .kaspi .title{font-size:19px}
+    .sub{font-size:13px}
+    .arrow{font-size:24px}
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+
+    <div class="avatar">
+        <img src="avatar.png" alt="Tomiris">
+    </div>
+
+    <div class="name">@tomamhm</div>
+
+    <div class="card kaspi" onclick="copyKaspi()">
+        <div class="left">
+            <div class="icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="8" y="14" width="48" height="36" rx="7" fill="#e51b23"/>
+                    <rect x="12" y="22" width="40" height="6" rx="3" fill="#fff"/>
+                    <rect x="14" y="36" width="18" height="5" rx="2.5" fill="#fff"/>
+                    <rect x="36" y="36" width="12" height="5" rx="2.5" fill="#fff" opacity=".85"/>
+                </svg>
+            </div>
+            <div class="text">
+                <div class="title">4400 4303 5833 4214</div>
+                <div class="sub">Kaspi — нажми, чтобы скопировать</div>
+            </div>
+        </div>
+        <div class="arrow">⧉</div>
+        <div class="ok" id="ok">Скопировано ✅</div>
+    </div>
+
+    <a class="card telegram" href="https://t.me/mhmtoma" target="_blank">
+        <div class="left">
+            <div class="icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="#229ED9" d="M56.7 11.2 47.9 52.7c-.7 3-2.4 3.8-4.9 2.4L29.6 45.2 23.1 51.5c-.7.7-1.3 1.3-2.7 1.3l1-13.6 24.8-22.4c1.1-1-.2-1.5-1.7-.6L13.8 35.5.6 31.4c-2.9-.9-2.9-2.9.6-4.2L52.8 7.3c2.4-.9 4.5.6 3.9 3.9z"/>
+                </svg>
+            </div>
+            <div class="text">
+                <div class="title">Telegram</div>
+                <div class="sub">@mhmtoma</div>
+            </div>
+        </div>
+        <div class="arrow">→</div>
+    </a>
+
+    <a class="card tiktok" href="https://www.tiktok.com/@tomamhm?_r=1&_t=ZS-97YctnbHCxo" target="_blank">
+        <div class="left">
+            <div class="icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M42.5 8c1.1 8 5.6 12.8 13.5 13.3v10.2c-4.6.4-8.7-1-13.2-3.8v19.1c0 24.3-26.5 31.9-37.1 14.5-6.8-11.2-2.6-30.8 19.2-31.6v10.8c-1.5.2-3.1.6-4.5 1.1-4.3 1.5-6.7 4.4-6 9.4 1.4 9.5 18.8 12.3 17.3-6.2V8h10.8z" fill="#111"/>
+                    <path d="M42.5 8c.4 2.7 1.2 5.1 2.4 7.1 2.5 4.1 6.2 6 11.1 6.3v10.2c-4.6.4-8.7-1-13.2-3.8" fill="#25F4EE" opacity=".9"/>
+                    <path d="M31.7 44.8V8h10.8v36.8c1.5 18.5-15.9 15.7-17.3 6.2-.5-3.7.7-6.3 3.2-8" fill="#FE2C55" opacity=".9"/>
+                </svg>
+            </div>
+            <div class="text">
+                <div class="title">TikTok</div>
+                <div class="sub">@tomamhm</div>
+            </div>
+        </div>
+        <div class="arrow">→</div>
+    </a>
+
+    <a class="card instagram" href="https://www.instagram.com/toma_mhm" target="_blank">
+        <div class="left">
+            <div class="icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="ig" x1="0" x2="1" y1="1" y2="0">
+                            <stop offset="0" stop-color="#feda75"/>
+                            <stop offset=".35" stop-color="#fa7e1e"/>
+                            <stop offset=".6" stop-color="#d62976"/>
+                            <stop offset="1" stop-color="#4f5bd5"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="10" width="44" height="44" rx="13" fill="url(#ig)"/>
+                    <circle cx="32" cy="32" r="11" fill="none" stroke="#fff" stroke-width="4"/>
+                    <circle cx="45" cy="19" r="3.5" fill="#fff"/>
+                </svg>
+            </div>
+            <div class="text">
+                <div class="title">Instagram</div>
+                <div class="sub">@toma_mhm</div>
+            </div>
+        </div>
+        <div class="arrow">→</div>
+    </a>
+
+    <div class="footer">
+        tomamhm © 2026<br>
+        <span class="heart">💙</span>
+    </div>
+
+</div>
+
+<script>
+function copyKaspi(){
+    navigator.clipboard.writeText("4400430358334214");
+    const ok = document.getElementById("ok");
+    ok.style.display = "block";
+    setTimeout(()=>{ok.style.display = "none";}, 2000);
+}
+</script>
+</body>
+</html>
